@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP VINO — Каталог продукции</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="glass-header">
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <a href="catalog.html" class="active">Каталог & Цены</a>
+            <div class="cart-badge" id="cartTrigger">🛒 Корзина (<span id="cartCount">0</span>)</div>
+        </nav>
+        <h1>Каталог продукции</h1>
+        <p>Полный прайс-лист и интерактивный выбор напитков</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Фильтры категорий -->
+        <div class="filters-panel glass-container">
+            <button class="filter-btn active" data-filter="all">Все товары</button>
+            <button class="filter-btn" data-filter="wine">Вина</button>
+            <button class="filter-btn" data-filter="sparkling">Игристые / Шампанское</button>
+        </div>
+
+        <!-- Прайс-лист со Skeleton -->
+        <section class="section">
+            <h2 class="section-title">Прайс-лист</h2>
+            <div class="glass-container price-table-wrapper">
+                <div class="skeleton-table" id="tableSkeleton">
+                    <div class="skeleton skeleton-row"></div>
+                    <div class="skeleton skeleton-row"></div>
+                    <div class="skeleton skeleton-row"></div>
+                </div>
+                <table id="priceTable" class="hidden-content">
+                    <thead>
+                        <tr>
+                            <th>Наименование</th>
+                            <th>Описание / Характеристики</th>
+                            <th>Крепость / Сахар</th>
+                            <th>Цена (сум)</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="priceTableBody">
+                        <!-- Заполняется динамически из JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Карточки товаров со Skeleton -->
+        <section class="section">
+            <h2 class="section-title">Коллекция напитков</h2>
+            <div id="cardsSkeleton" class="catalog-grid">
+                <div class="glass-card skeleton-card"><div class="skeleton skeleton-title"></div><div class="skeleton skeleton-text"></div></div>
+                <div class="glass-card skeleton-card"><div class="skeleton skeleton-title"></div><div class="skeleton skeleton-text"></div></div>
+                <div class="glass-card skeleton-card"><div class="skeleton skeleton-title"></div><div class="skeleton skeleton-text"></div></div>
+            </div>
+            <div id="catalogGrid" class="catalog-grid hidden-content">
+                <!-- Карточки генерируются динамически через script.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Модальное окно корзины -->
+    <div id="cartModal" class="modal-overlay hidden-content">
+        <div class="glass-card modal-content">
+            <h3>Ваша корзина заказов</h3>
+            <div id="cartItemsList" class="cart-items-container">
+                <p>Корзина пуста</p>
+            </div>
+            <div class="cart-total">Итого: <span id="cartTotalPrice">0</span> сум</div>
+            <div class="modal-buttons">
+                <button id="closeCartBtn" class="btn-secondary">Закрыть</button>
+                <button id="checkoutBtn" class="btn-primary">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 VIP VINO. Все права защищены.</p>
+        <p style="margin-top: 5px; color: var(--gold-color); font-weight: 500; letter-spacing: 1px;">MADE BY KIRILL</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
